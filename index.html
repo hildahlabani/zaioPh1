@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/stylesheetZ.css" />
+    	  
+		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendor/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	  
+		<title>Color Cart</title>
+	</head>
+	<body>
+		
+		<div class="container-md col-md-5 py-2" style="background-color: ghostwhite; ">
+        <h2 id="item-name">Hickies Originals</h2>
+        
+        <div class="row">
+           <div class="col-6">
+                
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+					<span class="fa fa-star"></span>
+
+            </div>
+            <div class="col-md-6"><p style="font-size: medium;"><span id="reviews"></span>1,293 reviews</p></div>
+        </div>
+        
+        <div class="row justify-content-start pb-3">
+            <div class="col-3">
+               <strong> <span class="price-display" style="color: red; font-size: 25px;">$14.00</span></strong>
+            </div>
+            <div class="col-3">
+                <span class="text-muted" style="font-size: medium;">$17.99</span>
+            </div>
+            <div class="col-3">
+                <span class="text-muted" style="font-size: medium;">25% OFF</span>
+            </div>
+        </div>
+        <div class="row">
+        	<div class="container">
+            <p style="font-size: medium;">ONLINE EXCLUSIVE</p>
+            </div>
+        </div>
+        
+        <!-- <div class="row">
+            <p class="my-mid-text fw-bold">COLOR: <span id="color" class="fw-normal"></span></p>
+        </div>-->
+        
+       <div class="color-picker py-3">
+            <div class="color-picker-header">
+                <h2>COLOR: <span></span></h2>
+            </div>
+            
+            <div class="color-picker-body">
+                <div class="color-box">
+                    <div class="color-item" data-color-name="IndianRed" data-color-value="#CD5C5C"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Salmon" data-color-value="#FA8072"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="tan" data-color-value="#D2B48C"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="PaleVioletRed" data-color-value="#DB7093"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Tomato" data-color-value="#FF6347"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="OrangeRed" data-color-value="#FF4500"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Yellow" data-color-value="#ffc107"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Gold" data-color-value="##FFD700"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="SeaGreen" data-color-value="#2E8B57"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Peru" data-color-value="#CD853F"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="SaddleBrown" data-color-value="#8B4513"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="White" data-color-value="#FFFFFF"></div>
+                </div>
+                <div class="color-box">
+                    <div class="color-item" data-color-name="LightSlateGray" data-color-value="#778899"></div>
+                </div>   
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Goldenrod" data-color-value="#DAA520"></div>
+                </div> 
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Chocolate" data-color-value="#D2691E"></div>
+                </div>   
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Aquamarine" data-color-value="#7FFFD4"></div>
+                </div>   
+                <div class="color-box">
+                    <div class="color-item" data-color-name="GreenYellow" data-color-value="#9ACD32"></div>
+                </div>   
+                <div class="color-box">
+                    <div class="color-item" data-color-name="Lime" data-color-value="#778899"></div>
+                </div>   
+            </div>
+        </div>
+      
+        <div class="row">
+        	<div class="container">
+            <p style="font-size: small; "><b>Size guide:</b></p>
+            </div>
+        </div>
+
+        <div class="row">
+        	<div class="container">
+            <p style="font-size: small;"><b>Your Custom Fit:</b></p>
+            </div>
+        </div>
+        
+        <div class="row border-bottom border-dark justify-content-start pb-3">
+            <div class="col-2">
+                <input type="text" id="checkout-quantity-value" class="form-control form-control-lg display-inline-block rounded-pill" value="0" readonly>
+            </div>
+    
+            <div class="col-8">
+                <input type="button" id="checkout-button" class="btn btn-dark form-control btn-lg rounded-pill"
+                    value="Add to Cart" data-bs-toggle="modal" data-bs-target="#quantity-control-modal" disabled="disabled">
+            </div>
+            </div>
+        
+        
+       <div id="details">
+            <p class="secondary" style="padding-top: 5px"><strong>DETAILS</strong></p>
+       </div>
+       <br />
+<hr />
+
+ 		<div class="row">
+            <div class="col-12">
+                <a href="#" class="text-dark fw-bold" style="text-decoration: none";>Need Help?</a>
+            </div>
+            <div class="col-12">
+                <a href="#" class="text-dark fw-bold" style="text-decoration: none";>Shipping & Returns</a>
+            </div>
+        </div>
+      </div>
+      
+      <!--Modal-->
+      
+      <div class="modal fade" id="quantity-control-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        tabindex="-1" aria-labelledby="quantity-control-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="quantity-control-modal-label">Please add the quantity of the item you
+                        have selected</h5>
+                </div>
+                <div class="modal-body border-0">
+                    <form>
+                        <input type="hidden" value="0" id="quantity-control-hidden-value">
+                        <div class="quantity-control-widget">
+                            <span id="quantity-control-item-name-display"></span>
+                            <button type="button" id="quantity-control-minus-button"
+                                class="quantity-control-button quantity-control-minus-button"></button>
+                            <span id="quantity-control-value-display">0</span>
+                            <button type="button" id="quantity-control-plus-button"
+                                class="quantity-control-button quantity-control-plus-button"></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" id="confirm-quantity-button" class="btn btn-success">Agree</button>
+                    <button type="button" id="cancel-quantity-button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
+
+
+
+
+ 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+    <script src="js/zp.js">
+    </script>
+	</body>
+</html>
