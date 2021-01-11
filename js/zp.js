@@ -13,6 +13,7 @@
         const quantityControlValueDisplay = document.getElementById("quantity-control-value-display");
         const quantityControlItemNameDisplay = document.getElementById("quantity-control-item-name-display");
         const cancelQuantityButton = document.getElementById("cancel-quantity-button");
+        const agreeQuantityButton = document.getElementById("agree-quantity-button");
         const purchasedItems = document.querySelector('.purchased-items');
 
         const checkoutQuantity = document.getElementById("checkout-quantity-value");
@@ -25,14 +26,14 @@
 
         /* HELP functions */
 
-        // Deselects the currently selected color item
+        // Deselects color 
         const deselectAllSelectedColors = function () {
             document.querySelectorAll(".color-item.active").forEach(function (item) {
                 item.classList.remove("active");
             });
         };
 
-        // Clears the selected color object to it default state
+        // Clears the selected color 
         const clearSelectedColorObj = function(){
             Object.assign(selectedColor, {
                 name: '',
@@ -42,32 +43,31 @@
             });            
         };
 
-        // updates the color picker title which responsible for showing the current selected color name
+        // updates the color picker 
         const updateColorPickerTitle = function(value = ''){
             colorPickerTitle.innerHTML = value;
         };
 
-        // Selecting and looping through all color items
         document.querySelectorAll(".color-item").forEach(function (item) {
 
-            /* Set background color for each color item to the corresponding data-color-value attribute */
+            
             item.style.backgroundColor = item.getAttribute("data-color-value");
 
             item.addEventListener("click", function (evt) {
                 if (evt.target.classList.contains("active")) {
-                    clearSelectedColorObj(); // reset selected color obj
-                    checkoutQuantity.value = selectedColor.quantity; // update checkout quantity to zero
-                    checkoutButton.disabled  = true; // disable checkout button
-                    updateColorPickerTitle(); // clear color picker title
+                    clearSelectedColorObj(); 
+                    checkoutQuantity.value = selectedColor.quantity; 
+                    checkoutButton.disabled  = true; 
+                    updateColorPickerTitle(); 
 
-                    evt.target.classList.remove("active"); // deselected the currently selected color
+                    evt.target.classList.remove("active"); 
                 } else {
-                    deselectAllSelectedColors(); // deselected previously selected color
+                    deselectAllSelectedColors(); 
 
-                    evt.target.classList.add("active"); // select currently selected color
+                    evt.target.classList.add("active"); 
 
-                    let colorName = evt.target.getAttribute("data-color-name"); // get color name
-                    let colorValue = evt.target.getAttribute("data-color-value"); // get color value
+                    let colorName = evt.target.getAttribute("data-color-name"); 
+                    let colorValue = evt.target.getAttribute("data-color-value");
 
 
                     // update selected color object
@@ -79,49 +79,48 @@
                     });
 
                     
-                    checkoutButton.disabled  = false; // enable checkout button because there is a selected color
-                    checkoutQuantity.value = selectedColor.quantity; // update checkout quantity to zero
+                    checkoutButton.disabled  = false; 
+                    checkoutQuantity.value = selectedColor.quantity; 
 
-                    // Change color picker title
                     updateColorPickerTitle(selectedColor.name);
 
-                    // Config modal
+                
                     configModal();
                 }
 
                 removeAllPurchasedItems();
-                checkoutButton.value = "Add to Cart"; // ensure that checkout button says "Add to Cart"
+                checkoutButton.value = "Add to Cart";
             }, false);
         });
 
         quantityControlMinusButton.addEventListener("click", function(evt){
-            if (selectedColor.quantity + selectedColor.change == 0) return; // if change will lead to a negative value, stop
+            if (selectedColor.quantity + selectedColor.change == 0) return; 
 
             Object.assign(selectedColor, {
-                change: selectedColor.change - 1, // record change
+                change: selectedColor.change - 1, 
             });
 
-            updateModal(); // update modal with recent changes
+            updateModal(); 
         }, false);
 
         quantityControlPlusButton.addEventListener("click", function(evt){
             Object.assign(selectedColor, {
-                change: selectedColor.change + 1, // record change
+                change: selectedColor.change + 1, 
             });
 
-            updateModal(); // update modal with recent changes
+            updateModal(); 
         }, false);
 
-        // updates modal with selected color object values
+    
         const updateModal = function(){
             quantityControlHidden.value = selectedColor.quantity + selectedColor.change;
             quantityControlValueDisplay.innerHTML = selectedColor.quantity + selectedColor.change;
         };
 
-        // used to config modal after a new color is selected
+        
         const configModal = function(){
             updateModal();
-            quantityControlItemNameDisplay.innerHTML = selectedColor.name; // update item name on the modal
+            quantityControlItemNameDisplay.innerHTML = selectedColor.name; 
         };
 
         confirmQuantityButton.addEventListener("click", function(){
@@ -167,4 +166,16 @@
             });
             checkoutQuantity.value = selectedColor.quantity;   
             updateModal();        
-        }, false);
+        }, 
+        
+        false);
+        
+agreeQuantityButton.addEventListener("click", function(){
+            Object.assign(selectedColor, {
+                change: 1,
+            });
+            checkoutQuantity.value = selectedColor.quantity;   
+            updateModal();        
+        }, 
+        
+        true);
